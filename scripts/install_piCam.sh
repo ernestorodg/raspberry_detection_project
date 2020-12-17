@@ -27,6 +27,8 @@ sudo apt-get install -y libv4l-dev
 sudo apt-get install -y libxvidcore-dev 
 sudo apt-get install -y libx264-dev
 
+sudo apt-get install -y libatlas-base-dev
+
 # The OpenCV library comes with a sub-module named highgui
 # which is used to display images to our screen and build basic GUIs. 
 
@@ -47,21 +49,6 @@ sudo apt-get install -y gfortran
 
 sudo apt-get install -y python2-dev 
 sudo apt-get install -y python3-dev
-
-
-# If all the dependencies were correctly installed, now it is 
-# time to download OpenCV source code
-
-cd ~
-wget -O opencv.zip https://github.com/Itseez/opencv/archive/3.3.0.zip
-unzip opencv.zip
-
-# We’ll want the full install of OpenCV 3 (to have access to features 
-# such as SIFT and SURF, for instance), 
-# so we also need to grab the opencv_contrib repository as well
-
-wget -O opencv_contrib.zip https://github.com/Itseez/opencv_contrib/archive/3.3.0.zip
-unzip opencv_contrib.zip
 
 # Note: Make sure your opencv
 # and opencv_contrib
@@ -86,6 +73,8 @@ export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 source /usr/local/bin/virtualenvwrapper.sh
 
-# Confirm your system variables are set properly
+# Load these variables if the command "workon" does not work
 source ~/.profile
+
+# see manage_virtual_env.sh for installing python libraries
 
