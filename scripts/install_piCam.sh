@@ -89,5 +89,3 @@ source /usr/local/bin/virtualenvwrapper.sh
 # Confirm your system variables are set properly
 source ~/.profile
 
-# Test!
-mkvirtualenv cv -p python3
