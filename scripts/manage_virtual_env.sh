@@ -24,3 +24,4 @@ https://github.com/lhelontra/tensorflow-on-arm/releases/download/v2.4.0/tensorfl
 
 pip install tensorflow-2.4.0-cp37-none-linux_arm7vl.whl
 
+rm tensorflow-2.4.0-cp37-none-linux_arm7vl.whl
