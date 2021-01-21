@@ -12,9 +12,12 @@ camera = picamera.PiCamera()
 camera.resolution = (640, 480)
 camera.framerate = 32
 rawCapture = picamera.PiRGBArray(camera, size=(640, 480))
+from darkflow.net.build import TFNet
+import cv2
 
-# allow the camera to warm up
-time.sleep(0.1)
+options = {"model": "cfg/yolo.cfg", "load": "bin/yolo.weights", "threshold": 0.1}
+
+tfnet = TFNet(options)
 
 
 for frame in camera.capture_continuous(rawCapture, format="bgr",
@@ -39,3 +42,6 @@ for frame in camera.capture_continuous(rawCapture, format="bgr",
     # show the frame
     cv2.imshow("Stream", image)
     key = cv2.waitKey(1) & 0xFF
+imgcv = cv2.imread("./sample_img/sample_dog.jpg")
+result = tfnet.return_predict(imgcv)
+print(result)
